@@ -1,0 +1,207 @@
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  //background-image: url('assets/background.jpg');
+  //background-size: cover;
+  background-color:rgb(46, 46, 46);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden; /* Prevent scrollbars */
+}
+
+.game-container {
+  text-align: center;
+  background-color: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.hidden {
+  display: none;
+}
+
+#start-screen h1 {
+  color: #d32f2f;
+  font-size: 3em;
+}
+
+#start-button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.2em;
+  cursor: pointer;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+#game-screen {
+  position: relative;
+  width: 800px; /* Increased width */
+  height: 400px; /* Increased height */
+  // background-color: #ffebee;
+  background-image: url('assets/akira_cyberpunk_anim_motormove2.gif');
+  background-size: contain;
+  
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+#character {
+  position: absolute;
+  bottom: 20px;
+  left: 50px;
+  width: 110px;
+  height: 55px;
+  background-image: url('assets/akira.png');
+  background-size: contain; /* Ensure the entire image fits */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+  background-position: center; /* Center the image */
+  transition: all 0.3s ease;
+}
+
+#boss {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 100px;
+  height: 100px;
+  background-image: url('assets/boss.png');
+  background-size: cover;
+}
+
+#letter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.quest {
+  position: absolute;
+  bottom: 20px;
+  width: 50px;
+  height: 50px;
+  display: none;
+}
+
+.quest img {
+  width: 100%;
+  height: 100%;
+}
+
+#quest1 { left: 100px; } /* Adjusted positions for larger screen */
+#quest2 { left: 250px; }
+#quest3 { left: 450px; }
+
+#explosion {
+  position: absolute;
+  bottom: 20px;
+  right: 50px;
+  width: 150px; /* Larger explosion */
+  height: 150px;
+  background-image: url('assets/explosion.png');
+  background-size: cover;
+  display: none;
+}
+
+@keyframes explode {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(3); opacity: 0; }
+}
+
+.explode {
+  animation: explode 1s ease-out;
+}
+
+@keyframes jump {
+  0% { bottom: 20px; }
+  50% { bottom: 100px; }
+  100% { bottom: 20px; }
+}
+
+.jump {
+  animation: jump 0.5s ease-in-out;
+}
+
+#failure-message {
+  position: absolute;
+  top: 20px; /* Position at the top of the game screen */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.5em;
+  color: #d32f2f;
+  font-weight: bold;
+  text-align: center;
+  display: none;
+  z-index: 10; /* Ensure it appears above other elements */
+  background-color: rgba(255, 255, 255, 0.8); /* Add a background for better readability */
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.boss-center {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Add this to your existing CSS */
+#quiz-screen button {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.2em;
+  cursor: pointer;
+  border-radius: 25px; /* Rounded corners */
+  margin: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: all 0.3s ease;
+}
+
+#quiz-screen button:hover {
+  background-color: #e63939; /* Darker shade on hover */
+  transform: translateY(0px); /* Slight lift on hover */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Larger shadow on hover */
+}
+
+/* Floating hearts */
+
+#background-hearts {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* Ensure it's behind the game content */
+  pointer-events: none; /* Make sure clicks pass through to the game */
+}
+
+.heart {
+  position: absolute;
+  color: #ff4d4d;
+  font-size: 2em;
+  animation: float 5s infinite ease-in-out;
+  z-index: 0; /* Ensure hearts are in the background */
+}
+
+@keyframes float {
+  0% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(10deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+
+/* Add hearts of different sizes */
+.heart.small { font-size: 1em; animation-duration: 6s; }
+.heart.medium { font-size: 2em; animation-duration: 7s; }
+.heart.large { font-size: 3em; animation-duration: 8s; }

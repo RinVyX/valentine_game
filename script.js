@@ -243,7 +243,7 @@ function addFloatingHearts() {
   for (let i = 0; i < Difference_In_Days; i++) { // Add 10 hearts
     const heart = document.createElement('div');
     heart.classList.add('heart', heartSizes[Math.floor(Math.random() * heartSizes.length)]);
-    heart.innerHTML = '🖤'; // 💗❤️🖤
+    heart.innerHTML = '❤️'; // 💗❤️🖤
     heart.style.left = `${Math.random() * 100}%`;
     heart.style.top = `${Math.random() * 100}%`;
     heart.style.animationDelay = `${Math.random() * 5}s`; // Randomize animation delay
